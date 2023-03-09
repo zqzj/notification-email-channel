@@ -1,0 +1,110 @@
+{
+  "id": "2",
+  "version": "1.0.11",
+  "creator": "adva.a@dataloop.ai",
+  "name": "referenceViewerAharon",
+  "displayName": "reference-viewer",
+  "description": "",
+  "icon": "icon-dl-sdk-documentation",
+  "categories": [
+    "referenceViewer"
+  ],
+  "codebase": {
+    "type": "git",
+    "gitUrl": "https://github.com/AharonDL/reference-viewer.git",
+    "gitTag": "main"
+  },
+  "scope": "organization",
+  "components": {
+    "panels": [
+      {
+        "name": "referenceViewer",
+        "minRole": "annotator",
+        "supportedSlots": [
+          {
+            "type": "floatingWindow",
+            "configuration": {
+              "layout": {
+                "width": 455,
+                "height": 340,
+                "resizable": true,
+                "backgroundColor": "dl-color-studio-panel"
+              },
+              "route": [
+                "datasetItem"
+              ]
+            }
+          }
+        ],
+        "icon": "icon-dl-sdk-documentation",
+        "metadata": {},
+        "defaultSettings": {},
+        "conditions": {
+          "resources": [
+            {
+              "entityType": "item",
+              "filter": {
+                "$and": [
+                  {
+                    "metadata": {
+                      "system": {
+                        "modalities": {
+                          "$exists": true
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "icon": "icon-dl-sdk-documentation",
+              "metadata": {},
+              "defaultSettings": {}
+            }
+          ]
+        }
+      }
+    ],
+    "hooks": [],
+    "modules": [],
+    "services": [
+      {
+        "name": "aaron-test",
+        "panelNames": [
+          "referenceViewer"
+        ],
+        "initParams": {},
+        "packageName": "default-package",
+        "packageRevision": "latest",
+        "secrets": ["00c7bdeb-50ff-443c-bd53-027687cc1232", "0d0631f0-af83-44e4-93f0-787608b97d01"],
+        "versions": {
+          "dtlpy": "1.74.1"
+        },
+        "runtime": {
+          "podType": "regular-xs",
+          "numReplicas": 1,
+          "concurrency": 10,
+          "pyPackages": {},
+          "runnerImage": "gcr.io/viewo-g/piper/agent/runner/cpu/node14:latest",
+          "singleAgent": false,
+          "autoscaler": {
+            "type": "rabbitmq",
+            "minReplicas": 1,
+            "maxReplicas": 2,
+            "queueLength": 10
+          },
+          "preemptible": false,
+          "executionTimeout": 3600,
+          "drainTime": 600,
+          "onReset": "failed",
+          "runExecutionAsProcess": false
+        },
+        "maxAttempts": 3
+      }
+    ],
+    "triggers": [],
+    "pipelines": [],
+    "models": [],
+    "snapshots": []
+  },
+  "trusted": true
+}
