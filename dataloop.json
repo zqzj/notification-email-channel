@@ -52,7 +52,7 @@
         "packageRevision": "latest",
         "secrets": [],
         "versions": {
-          "dtlpy": "1.74.1"
+          "dtlpy": "1.77.18"
         },
         "runtime": {
           "podType": "regular-xs",
