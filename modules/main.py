@@ -3,27 +3,57 @@ import dtlpy as dl
 
 class EventMessage:
     def __init__(self, event_message: dict):
+        if event_message is None:
+            raise ValueError('event_message is None')
+        if event_message.get('title', None) is None:
+            raise ValueError('title is None')
+        if event_message.get('description', None) is None:
+            raise ValueError('description is None')
+        if event_message.get('resourceAction', None) is None:
+            raise ValueError('resourceAction is None')
+        if event_message.get('resourceId', None) is None:
+            raise ValueError('resourceId is None')
+        if event_message.get('resourceType', None) is None:
+            raise ValueError('resourceType is None')
         self.title = event_message.get('title', None)
-        self.description = event_message.get('description', None)
-        self.resourceAction = event_message.get('resourceAction', None)
-        self.resourceId = event_message.get('resourceId', None)
-        self.resourceType = event_message.get('resourceType', None)
+        self.description = event_message.get('description')
+        self.resourceAction = event_message.get('resourceAction')
+        self.resourceId = event_message.get('resourceId')
+        self.resourceType = event_message.get('resourceType')
         self.resourceName = event_message.get('resourceName', None)
 
 class NotificationInfo:
     def __init__(self, notification_info: dict):
-        self.notificationCode = notification_info.get('notificationCode', None)
+        if notification_info is None:
+            raise ValueError('notification_info is None')
+        if notification_info.get('notificationCode', None) is None:
+            raise ValueError('notificationCode is None')
+        if notification_info.get('context', None) is None:
+            raise ValueError('context is None')
+        if notification_info.get('priority', None) is None:
+            raise ValueError('priority is None')
+        if notification_info.get('eventMessage', None) is None:
+            raise ValueError('eventMessage is None')
+        self.notificationCode = notification_info.get('notificationCode')
         self.type = notification_info.get('type', None)
-        self.context = notification_info.get('context', None)
-        self.priority = notification_info.get('priority', None)
-        self.eventMessage = EventMessage(notification_info.get('eventMessage', None))
+        self.context = notification_info.get('context')
+        self.priority = notification_info.get('priority')
+        self.eventMessage = EventMessage(notification_info.get('eventMessage'))
 
 
 class ApplicationInput:
     def __init__(self, application_input: dict):
-        self.notification_info = NotificationInfo(application_input.get('notificationInfo', None))
-        self.recipients = application_input.get('recipients', None)
-        self.notificationId = application_input.get('notificationId', None)
+        if application_input is None:
+            raise ValueError('application_input is None')
+        if application_input.get('notificationInfo', None) is None:
+            raise ValueError('notificationInfo is None')
+        if application_input.get('recipients', None) is None:
+            raise ValueError('recipients is None')
+        if application_input.get('notificationId', None) is None:
+            raise ValueError('notificationId is None')
+        self.notification_info = NotificationInfo(application_input.get('notificationInfo'))
+        self.recipients = application_input.get('recipients')
+        self.notificationId = application_input.get('notificationId')
 
 class ServiceRunner(dl.BaseServiceRunner):
     def __init__(self, **kwargs):
