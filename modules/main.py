@@ -71,7 +71,7 @@ class ServiceRunner(dl.BaseServiceRunner):
             "body": application_input.notification_info.event_message.description,
         }
         if application_input.recipients is None or len(application_input.recipients) == 0:
-            return
+            raise ValueError('recipients is None or empty')
         success_pack, response_pack = dl.client_api.gen_request(req_type='post',
                                                                    json_req=req_data,
                                                                    path='/outbox')
