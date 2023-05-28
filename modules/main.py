@@ -53,7 +53,7 @@ class ApplicationInput:
             raise ValueError('notificationId is None')
         self.notification_info = NotificationInfo(application_input.get('notificationInfo'))
         self.recipients = application_input.get('recipients')
-        self.notificationId = application_input.get('notificationId')
+        self.notification_id = application_input.get('notificationId')
 
 class ServiceRunner(dl.BaseServiceRunner):
     def __init__(self, **kwargs):
@@ -67,9 +67,11 @@ class ServiceRunner(dl.BaseServiceRunner):
         req_data = {
             "to": application_input.recipients,
             "from": "notifications@dataloop.ai",
-            "subject": application_input.event_message,
+            "subject": application_input.notification_info.event_message.title,
             "body": application_input.notification_info.event_message.description,
         }
+        if application_input.recipients is None or len(application_input.recipients) == 0:
+            return
         success_pack, response_pack = dl.client_api.gen_request(req_type='post',
                                                                    json_req=req_data,
                                                                    path='/outbox')
