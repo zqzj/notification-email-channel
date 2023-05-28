@@ -54,6 +54,7 @@
         "versions": {
           "dtlpy": "1.77.18"
         },
+        "botUserName": "pipelines@dataloop.ai",
         "runtime": {
           "podType": "regular-xs",
           "numReplicas": 1,
