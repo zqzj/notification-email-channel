@@ -1,82 +1,56 @@
 {
   "id": "2",
-  "version": "1.0.11",
-  "creator": "adva.a@dataloop.ai",
-  "name": "referenceViewerAharon",
-  "displayName": "reference-viewer",
-  "description": "",
+  "version": "1.0.0",
+  "creator": "shlomi.s@dataloop.ai",
+  "name": "notifications-email-channel",
+  "displayName": "notifications-email-channel",
+  "description": "dataloop notifications email channel",
   "icon": "icon-dl-sdk-documentation",
   "categories": [
-    "referenceViewer"
+    "notifications-email-channel"
   ],
   "codebase": {
     "type": "git",
-    "gitUrl": "https://github.com/AharonDL/reference-viewer.git",
+    "gitUrl": "https://github.com/dataloop-ai/notification-email-channel",
     "gitTag": "main"
   },
   "scope": "organization",
   "components": {
-    "panels": [
-      {
-        "name": "referenceViewer",
-        "minRole": "annotator",
-        "supportedSlots": [
+    "panels": [],
+    "channels":[{
+      "metadata": {
+        "serviceName": "notify",
+        "functionName": "notify"
+      },
+      "context": {
+        "org": "dataloop-global",
+        "project": "dataloop-global",
+        "creator": "dataloop-global"
+      }
+    }],
+    "hooks": [],
+    "modules": [{
+      "name": "email-channel",
+      "functions": [{
+        "name": "notify",
+        "input": [
           {
-            "type": "floatingWindow",
-            "configuration": {
-              "layout": {
-                "width": 455,
-                "height": 340,
-                "resizable": true,
-                "backgroundColor": "dl-color-studio-panel"
-              },
-              "route": [
-                "datasetItem"
-              ]
-            }
+            "type": "Json",
+            "name": "input"
           }
         ],
-        "icon": "icon-dl-sdk-documentation",
-        "metadata": {},
-        "defaultSettings": {},
-        "conditions": {
-          "resources": [
-            {
-              "entityType": "item",
-              "filter": {
-                "$and": [
-                  {
-                    "metadata": {
-                      "system": {
-                        "modalities": {
-                          "$exists": true
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              "icon": "icon-dl-sdk-documentation",
-              "metadata": {},
-              "defaultSettings": {}
-            }
-          ]
-        }
-      }
-    ],
-    "channel":[{}],
-    "hooks": [],
-    "modules": [],
+        "description": "dataloop notifications email channel",
+        "displayName": "notifications-email-channel"
+      }]
+    }],
     "services": [
       {
-        "name": "aaron-test",
-        "panelNames": [
-          "referenceViewer"
-        ],
+        "name": "notify",
+        "panelNames": [],
         "initParams": {},
         "packageName": "default-package",
         "packageRevision": "latest",
-        "secrets": ["00c7bdeb-50ff-443c-bd53-027687cc1232", "0d0631f0-af83-44e4-93f0-787608b97d01"],
+        "secrets": [],
         "versions": {
           "dtlpy": "1.74.1"
         },
@@ -90,7 +64,7 @@
           "autoscaler": {
             "type": "rabbitmq",
             "minReplicas": 1,
-            "maxReplicas": 2,
+            "maxReplicas": 10,
             "queueLength": 10
           },
           "preemptible": false,
@@ -99,6 +73,7 @@
           "onReset": "failed",
           "runExecutionAsProcess": false
         },
+        "moduleName": "email-channel",
         "maxAttempts": 3
       }
     ],
