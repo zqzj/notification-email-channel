@@ -17,10 +17,10 @@ class EventMessage:
             raise ValueError('resourceType is None')
         self.title = event_message.get('title', None)
         self.description = event_message.get('description')
-        self.resourceAction = event_message.get('resourceAction')
-        self.resourceId = event_message.get('resourceId')
-        self.resourceType = event_message.get('resourceType')
-        self.resourceName = event_message.get('resourceName', None)
+        self.resource_action = event_message.get('resourceAction')
+        self.resource_id = event_message.get('resourceId')
+        self.resource_type = event_message.get('resourceType')
+        self.resource_name = event_message.get('resourceName', None)
 
 class NotificationInfo:
     def __init__(self, notification_info: dict):
@@ -34,11 +34,11 @@ class NotificationInfo:
             raise ValueError('priority is None')
         if notification_info.get('eventMessage', None) is None:
             raise ValueError('eventMessage is None')
-        self.notificationCode = notification_info.get('notificationCode')
+        self.notification_code = notification_info.get('notificationCode')
         self.type = notification_info.get('type', None)
         self.context = notification_info.get('context')
         self.priority = notification_info.get('priority')
-        self.eventMessage = EventMessage(notification_info.get('eventMessage'))
+        self.event_message = EventMessage(notification_info.get('eventMessage'))
 
 
 class ApplicationInput:
@@ -67,7 +67,7 @@ class ServiceRunner(dl.BaseServiceRunner):
         req_data = {
             "to": application_input.recipients,
             "from": "notifications@dataloop.ai",
-            "subject": application_input.notification_info.event_message.title,
+            "subject": application_input.event_message,
             "body": application_input.notification_info.event_message.description,
         }
         success_pack, response_pack = dl.client_api.gen_request(req_type='post',
