@@ -59,7 +59,7 @@ class ServiceRunner(dl.BaseServiceRunner):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def notify(self, input: dict, **kwargs):
+    def email(self, input: dict, **kwargs):
         application_input = ApplicationInput(input)
         # with open('email_template.html', 'r') as file:
         #     template_string = file.read()
