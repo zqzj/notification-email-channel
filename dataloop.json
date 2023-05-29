@@ -2,12 +2,12 @@
   "id": "2",
   "version": "1.0.0",
   "creator": "shlomi.s@dataloop.ai",
-  "name": "notifications-email-channel",
-  "displayName": "notifications-email-channel",
+  "name": "dataloop-email-channel",
+  "displayName": "dataloop-email-channel",
   "description": "dataloop notifications email channel",
   "icon": "icon-dl-sdk-documentation",
   "categories": [
-    "notifications-email-channel"
+    "dataloop-email-channel"
   ],
   "codebase": {
     "type": "git",
@@ -19,8 +19,8 @@
     "panels": [],
     "channels":[{
       "metadata": {
-        "serviceName": "notify",
-        "functionName": "notify"
+        "serviceName": "dataloop-email-channel",
+        "functionName": "email"
       },
       "context": {
         "org": "dataloop-global",
@@ -30,9 +30,9 @@
     }],
     "hooks": [],
     "modules": [{
-      "name": "email-channel",
+      "name": "dataloop-email-channel",
       "functions": [{
-        "name": "notify",
+        "name": "email",
         "input": [
           {
             "type": "Json",
@@ -40,12 +40,12 @@
           }
         ],
         "description": "dataloop notifications email channel",
-        "displayName": "notifications-email-channel"
+        "displayName": "dataloop-email-channel"
       }]
     }],
     "services": [
       {
-        "name": "notify",
+        "name": "dataloop-email-channel",
         "panelNames": [],
         "initParams": {},
         "packageName": "default-package",
@@ -74,7 +74,7 @@
           "onReset": "failed",
           "runExecutionAsProcess": false
         },
-        "moduleName": "email-channel",
+        "moduleName": "dataloop-email-channel",
         "maxAttempts": 3
       }
     ],
