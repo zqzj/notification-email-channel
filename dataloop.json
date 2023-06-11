@@ -18,7 +18,7 @@
   "components": {
     "panels": [],
     "channels":[{
-      "name":"dataloop-email-channel",
+      "name":"Email",
       "description": "Send notifications via email",
       "global": true,
       "metadata": {
