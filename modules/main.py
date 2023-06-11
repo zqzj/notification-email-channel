@@ -76,7 +76,7 @@ class ServiceRunner(dl.BaseServiceRunner):
 
     def build_logo_attachment(self):
         dataloop_image_id = 'dataloop_logo'
-        dataloop_logo_file_content = open('../assets/logo-dataloop.png', 'rb').read()
+        dataloop_logo_file_content = open('./assets/logo-dataloop.png', 'rb').read()
         dataloop_logo_base64_utf8_str = base64.b64encode(dataloop_logo_file_content).decode('utf-8')
         return {
             "filename": "logo-dataloop",
@@ -121,11 +121,11 @@ class ServiceRunner(dl.BaseServiceRunner):
         icon_image_id = 'notification_icon'
         icon_file = None
         if priority <= 50:
-            icon_file = open('../assets/icon-dl-info-filled.png', 'rb').read()
+            icon_file = open('./assets/icon-dl-info-filled.png', 'rb').read()
         elif priority <= 75:
-            icon_file = open('../assets/icon-dl-alert-filled.png', 'rb').read()
+            icon_file = open('./assets/icon-dl-alert-filled.png', 'rb').read()
         else:
-            icon_file = open('../assets/icon-dl-error-filled.png', 'rb').read()
+            icon_file = open('./assets/icon-dl-error-filled.png', 'rb').read()
 
         dataloop_logo_base64_utf8_str = base64.b64encode(icon_file).decode('utf-8')
         return {
@@ -154,7 +154,7 @@ class ServiceRunner(dl.BaseServiceRunner):
     def email(self, input: dict, **kwargs):
         print(os.getcwd())
         application_input = ApplicationInput(input)
-        with open('../assets/email_template.html', 'r') as file:
+        with open('./assets/email_template.html', 'r') as file:
             template_string = file.read()
 
         [compiled_html, attachments] = self.compile_html(html_template_string=template_string, application_input=application_input)
