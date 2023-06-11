@@ -18,9 +18,16 @@
   "components": {
     "panels": [],
     "channels":[{
+      "name":"dataloop-email-channel",
+      "description": "Send notifications via email",
+      "global": true,
       "metadata": {
         "serviceName": "dataloop-email-channel",
-        "functionName": "email"
+        "functionName": "email",
+        "codebase": {
+          "type": "git",
+          "gitUrl": "https://github.com/dataloop-ai/notification-email-channel"
+        }
       },
       "context": {
         "org": "dataloop-global",
