@@ -1,6 +1,141 @@
 import base64
 import dtlpy as dl
 
+template = '''
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <title>confirmation email</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        .body{
+            margin: 0;
+            width: 1200px;
+            height: 750px;
+            background: #F8F8F8;
+            font-family: Roboto;
+        }
+        .email-notification-body{
+            font-weight: 400;
+            position: absolute;
+            margin-left:230px;
+            color:black !important;
+        }
+        .mail-body{
+            width:740px;
+            height: 750px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            background: #FFFFFF;
+            padding: 50px;
+        }
+        .mail-header{
+            display: block;
+            margin-bottom: 40px;
+        }
+        .mail-header-img{
+            display: inline-block;
+            width: 127px ;
+            height: 22px;
+        }
+        .mail-title{
+            margin-bottom: 30px;
+        }
+        .mail-title-head{
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color:black !important;
+        }
+        .mail-title-content{
+            color:#171723;
+            font-size: 14px;
+        }
+        .mail-next-date-display-none{
+            display: none;
+        }
+        .mail-notes{
+            font-size: 12px;
+            color:#767676;
+            line-height: 20px;
+        }
+        .mail-separator{
+            width:85%;
+            border: 1px solid #E4E4E4;
+        }
+        .mail-end{
+            color:#999999;
+            font-size: 12px;
+        }
+        a{
+            color:#516AFF;
+            text-decoration:none;
+        }
+        .mail-links{
+            margin-bottom: 40px;
+        }
+        .link-title {
+            margin-bottom: 10px;
+            color: #171723;
+        }
+        .contact-support {
+            margin-bottom: 270px;
+        }
+        .pad-left {
+            padding-left: 34px;
+        }
+        .notification-icon{
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+        }
+        .mail-title-text{
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body dir="ltr" class="body" background="#F4F6FB" style="background-color: #F4F6FB;">
+    <div class="email-notification-body">
+        <div class="mail-body">
+            <div class="mail-header">
+                <img class ="mail-header-img" src="@@dataloopLogo@@" alt="Dataloop logo" />
+            </div>
+            <div class="mail-title">
+
+                <div class="mail-title-head">
+                    <img class="notification-icon" src="@@notificationIcon@@" alt="notification icon" />
+                    <span class="mail-title-text">##title##</span>
+                </div>
+                <div class="mail-title-content pad-left">##description##</div>
+            </div>
+            <div class="mail-links pad-left">
+                <div class="link-title">
+                    To view the problem, follow the links below:
+                </div>
+                $$projectLink$$
+                $$serviceLink$$
+            </div>
+            <div class="contact-support pad-left">
+                If you have any questions, you can get in touch with us at <a href="mailto: support@dataloop.ai">support@dataloop.ai</a>
+            </div>
+            <div class="mail-separator"></div>
+            <div class="mail-end">This message was generated automatically. Please do not reply to this email.</div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+'''
+
 class EventMessage:
     def __init__(self, event_message: dict):
         if event_message is None:
@@ -152,8 +287,10 @@ class ServiceRunner(dl.BaseServiceRunner):
 
     def email(self, input: dict, **kwargs):
         application_input = ApplicationInput(input)
-        with open('email_template.html', 'r') as file:
-            template_string = file.read()
+        # with open('email_template.html', 'r') as file:
+        #     template_string = file.read()
+
+        template_string = template
 
         [compiled_html, attachments] = self.compile_html(html_template_string=template_string, application_input=application_input)
 
