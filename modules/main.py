@@ -290,11 +290,11 @@ class ServiceRunner(dl.BaseServiceRunner):
             template_string = file.read()
 
         [compiled_html, attachments] = self.compile_html(html_template_string=template_string, application_input=application_input)
-
+        title = '[Dataloop] ' + str(application_input.notification_info.event_message.title).title()
         req_data = {
             "to": application_input.recipients,
             "from": "notifications@dataloop.ai",
-            "subject": application_input.notification_info.event_message.title,
+            "subject": title,
             "body": compiled_html,
             "attachments": attachments
         }
