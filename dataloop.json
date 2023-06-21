@@ -33,7 +33,19 @@
         "org": "dataloop-global",
         "project": "dataloop-global",
         "creator": "dataloop-global"
-      }
+      },
+      "filters": [{
+        "notificationCode": "Platform",
+        "frequency": {
+          "type": "rate",
+          "value": 86400
+        },
+        "context": {
+          "org": "dataloop-global",
+          "project": "dataloop-global",
+          "creator": "dataloop-global"
+        }
+      }]
     }],
     "hooks": [],
     "modules": [{
