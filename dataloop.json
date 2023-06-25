@@ -35,7 +35,6 @@
         "creator": "dataloop-global"
       },
       "filters": [{
-        "notificationCode": "Platform",
         "frequency": {
           "type": "rate",
           "value": 3600
