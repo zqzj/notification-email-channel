@@ -38,7 +38,7 @@
         "notificationCode": "Platform",
         "frequency": {
           "type": "rate",
-          "value": 86400
+          "value": 3600
         },
         "context": {
           "org": "dataloop-global",
