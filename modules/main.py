@@ -114,7 +114,7 @@ class ServiceRunner(dl.BaseServiceRunner):
         if service is not None:
             log_link = link_prefix + "/faas/logs?serviceId={0}".format(service)
             compiled_html = compiled_html.replace('$$ServiceLogsLink$$',
-                                        '<div><span style="color: #171723;">Logs:</span><a href={0}>Logs</a></div>'.format(
+                                        '<div><span style="color: #171723; padding-right: 2px;">Logs:</span><a href={0}>Logs</a></div>'.format(
                                             log_link))
             replaced_links['$$ServiceLogsLink$$'] = True
         return compiled_html
@@ -125,7 +125,7 @@ class ServiceRunner(dl.BaseServiceRunner):
             service_link = link_prefix + "/services/{0}".format(service)
             resource_name = self.get_resource_name(service, self.get_service)
             compiled_html = compiled_html.replace('$$ServiceLink$$',
-                                                  '<div><span style="color: #171723;">Service:</span><a href={0}>{1}</a></div>'.format(
+                                                  '<div><span style="color: #171723; padding-right: 2px;">Service:</span><a href={0}>{1}</a></div>'.format(
                                                       service_link, resource_name))
             replaced_links['$$ServiceLink$$'] = True
         return compiled_html
@@ -135,7 +135,7 @@ class ServiceRunner(dl.BaseServiceRunner):
         if service is not None:
             executions_link = link_prefix + "/executions?serviceId={0}".format(service)
             compiled_html = compiled_html.replace('$$ServiceExecutionsLink$$',
-                                                  '<div><span style="color: #171723;">Executions:</span><a href={0}>Executions</a></div>'.format(
+                                                  '<div><span style="color: #171723; padding-right: 2px;">Executions:</span><a href={0}>Executions</a></div>'.format(
                                                       executions_link))
             replaced_links['$$ServiceExecutionsLink$$'] = True
         return compiled_html
@@ -146,7 +146,7 @@ class ServiceRunner(dl.BaseServiceRunner):
             pipeline_link = link_prefix + "/pipelines/{}".format(pipeline)
             resource_name = self.get_resource_name(pipeline, self.get_pipeline)
             compiled_html = compiled_html.replace('$$PipelineLink$$',
-                                                  '<div><span style="color: #171723;">Pipeline:</span><a href={0}>{1}</a></div>'.format(
+                                                  '<div><span style="color: #171723; padding-right: 2px;">Pipeline:</span><a href={0}>{1}</a></div>'.format(
                                                       pipeline_link, resource_name))
             replaced_links['$$PipelineLink$$'] = True
         return compiled_html
@@ -157,7 +157,7 @@ class ServiceRunner(dl.BaseServiceRunner):
             task_link = link_prefix + "/tasks/{0}/assignments".format(task)
             resource_name = self.get_resource_name(task, self.get_task)
             compiled_html = compiled_html.replace('$$TaskLink$$',
-                                                  '<div><span style="color: #171723;">Task:</span><a href={0}>{1}</a></div>'.format(
+                                                  '<div><span style="color: #171723; padding-right: 2px;">Task:</span><a href={0}>{1}</a></div>'.format(
                                                       task_link, resource_name))
             replaced_links['$$TaskLink$$'] = True
         return compiled_html
@@ -167,7 +167,7 @@ class ServiceRunner(dl.BaseServiceRunner):
         assignments_link = link_prefix + "/assignments/{0}/items".format(assignment)
         assignment_name = self.get_resource_name(assignment, self.get_assignment)
         compiled_html = compiled_html.replace('$$AssignmentLink$$',
-                                              '<div><span style="color: #171723;">Assignment:</span><a href={0}>{1}</a></div>'.format(
+                                              '<div><span style="color: #171723; padding-right: 2px;">Assignment:</span><a href={0}>{1}</a></div>'.format(
                                                   assignments_link, assignment_name))
         replaced_links['$$AssignmentLink$$'] = True
         return compiled_html
@@ -177,7 +177,7 @@ class ServiceRunner(dl.BaseServiceRunner):
         project_link_prefix = env_prefix + "projects/"
         project_name = self.get_resource_name(project, self.get_project)
         compiled_html = compiled_html.replace('$$ProjectLink$$',
-                                    '<div><span style="color: #171723;">Project:</span><a href={0}>{1}</a></div>'.format(
+                                    '<div><span style="color: #171723; padding-right: 2px;">Project:</span><a href={0}>{1}</a></div>'.format(
                                         project_link_prefix + project, project_name))
         replaced_links['$$ProjectLink$$'] = True
         link_prefix = project_link_prefix + project
