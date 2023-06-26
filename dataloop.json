@@ -2,12 +2,12 @@
   "id": "2",
   "version": "1.0.0",
   "creator": "shlomi.s@dataloop.ai",
-  "name": "dataloop-email-channel",
-  "displayName": "dataloop-email-channel",
+  "name": "testing",
+  "displayName": "testing",
   "description": "dataloop notifications email channel",
   "icon": "icon-dl-sdk-documentation",
   "categories": [
-    "dataloop-email-channel"
+    "testing"
   ],
   "codebase": {
     "type": "git",
@@ -19,10 +19,10 @@
     "panels": [],
     "channels":[{
       "name":"Email",
-      "description": "Send notifications via email",
+      "description": "testing",
       "global": true,
       "metadata": {
-        "serviceName": "dataloop-email-channel",
+        "serviceName": "testing",
         "functionName": "email",
         "codebase": {
           "type": "git",
@@ -48,7 +48,7 @@
     }],
     "hooks": [],
     "modules": [{
-      "name": "dataloop-email-channel",
+      "name": "testing",
       "functions": [{
         "name": "email",
         "input": [
@@ -58,12 +58,12 @@
           }
         ],
         "description": "dataloop notifications email channel",
-        "displayName": "dataloop-email-channel"
+        "displayName": "testing"
       }]
     }],
     "services": [
       {
-        "name": "dataloop-email-channel",
+        "name": "testing",
         "panelNames": [],
         "initParams": {},
         "packageName": "default-package",
@@ -92,7 +92,7 @@
           "onReset": "failed",
           "runExecutionAsProcess": false
         },
-        "moduleName": "dataloop-email-channel",
+        "moduleName": "testing",
         "maxAttempts": 3
       }
     ],
