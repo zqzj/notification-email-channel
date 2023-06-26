@@ -296,7 +296,9 @@ class ServiceRunner(dl.BaseServiceRunner):
             "from": "notifications@dataloop.ai",
             "subject": title,
             "body": compiled_html,
-            "attachments": attachments
+            "attachments": attachments,
+            "personalize": True,
+            "senderName": "Dataloop Notification"
         }
         if application_input.recipients is None or len(application_input.recipients) == 0:
             return
