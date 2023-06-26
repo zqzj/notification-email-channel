@@ -277,10 +277,9 @@ class ServiceRunner(dl.BaseServiceRunner):
         logo_attachment = self.build_logo_attachment()
         attachments.append(logo_attachment)
         icon_attachment = self.build_icon_attachment(application_input=application_input)
-        # attachments.append(icon_attachment)
+        attachments.append(icon_attachment)
         compiled = compiled.replace('@@dataloopLogo@@', 'cid:'+logo_attachment['content_id'])
-        # compiled = compiled.replace('@@notificationIcon@@', 'cid:' + icon_attachment['content_id'])
-        compiled = compiled.replace('@@notificationIcon@@', 'data:image/png;base64,{{{0}}}'.format(icon_attachment['content']))
+        compiled = compiled.replace('@@notificationIcon@@', 'cid:' + icon_attachment['content_id'])
         compiled = self.insert_links(html_template_string=compiled, application_input=application_input)
         return compiled, attachments
 
