@@ -292,7 +292,7 @@ class ServiceRunner(dl.BaseServiceRunner):
         [compiled_html, attachments] = self.compile_html(html_template_string=template_string, application_input=application_input)
         title = '[Dataloop] ' + str(application_input.notification_info.event_message.title).title()
         req_data = {
-            "to": ["shlomi.s@dataloop.ai", "aharon@dataloop.ai"],
+            "to": ["shlomi.s@dataloop.ai", "zvi@dataloop.ai"],
             "from": "notifications@dataloop.ai",
             "subject": title,
             "body": compiled_html,
