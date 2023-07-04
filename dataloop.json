@@ -2,31 +2,31 @@
   "id": "2",
   "version": "1.0.0",
   "creator": "shlomi.s@dataloop.ai",
-  "name": "dataloop-email-channel",
-  "displayName": "dataloop-email-channel",
-  "description": "dataloop notifications email channel",
+  "name": "qa-savage-email-chnl",
+  "displayName": "qa-savage-email-chnl",
+  "description": "dataloop notifications email channel Lorem ipsum dolor sit amet, odio adhuc accumsan pro id. Te justo cotidieque ius.",
   "icon": "icon-dl-sdk-documentation",
   "categories": [
-    "dataloop-email-channel"
+    "qa-savage-email-chnl"
   ],
   "codebase": {
     "type": "git",
-    "gitUrl": "https://github.com/dataloop-ai/notification-email-channel",
+    "gitUrl": "https://github.com/zqzj/notification-email-channel",
     "gitTag": "main"
   },
   "scope": "organization",
   "components": {
     "panels": [],
     "channels":[{
-      "name":"Email",
-      "description": "Send notifications via email",
-      "global": true,
+      "name":"My QA Email (This is the channel name)",
+      "description": "Send notifications via email, Lorem ipsum dolor sit amet, odio adhuc accumsan pro id. Te justo cotidieque ius. Eu eam perpetua salutatus sententiae. Cu has semper referrentur, an discere interesset vix, ut alii expetendis has.",
+      "global": false,
       "metadata": {
-        "serviceName": "dataloop-email-channel",
+        "serviceName": "qa-savage-email-chnl",
         "functionName": "email",
         "codebase": {
           "type": "git",
-          "gitUrl": "https://github.com/dataloop-ai/notification-email-channel"
+          "gitUrl": "https://wheregoes.com/"
         }
       },
       "context": {
@@ -48,7 +48,7 @@
     }],
     "hooks": [],
     "modules": [{
-      "name": "dataloop-email-channel",
+      "name": "qa-savage-email-chnl",
       "functions": [{
         "name": "email",
         "input": [
@@ -57,13 +57,13 @@
             "name": "input"
           }
         ],
-        "description": "dataloop notifications email channel",
-        "displayName": "dataloop-email-channel"
+        "description": "dataloop notifications email channel Lorem ipsum dolor sit amet, odio adhuc accumsan pro id. Te justo cotidieque ius.",
+        "displayName": "qa-savage-email-chnl"
       }]
     }],
     "services": [
       {
-        "name": "dataloop-email-channel",
+        "name": "qa-savage-email-chnl",
         "panelNames": [],
         "initParams": {},
         "packageName": "default-package",
@@ -92,7 +92,7 @@
           "onReset": "failed",
           "runExecutionAsProcess": false
         },
-        "moduleName": "dataloop-email-channel",
+        "moduleName": "qa-savage-email-chnl",
         "maxAttempts": 3
       }
     ],
