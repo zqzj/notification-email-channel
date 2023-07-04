@@ -1,6 +1,6 @@
 {
   "id": "2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "creator": "shlomi.s@dataloop.ai",
   "name": "qa-savage-email-chnl",
   "displayName": "qa-savage-email-chnl",
@@ -18,7 +18,7 @@
   "components": {
     "panels": [],
     "channels":[{
-      "name":"My QA Email (This is the channel name)",
+      "name":"My QA Email (This is the channel name - version 2)",
       "description": "Send notifications via email, Lorem ipsum dolor sit amet, odio adhuc accumsan pro id. Te justo cotidieque ius. Eu eam perpetua salutatus sententiae. Cu has semper referrentur, an discere interesset vix, ut alii expetendis has.",
       "global": false,
       "metadata": {
